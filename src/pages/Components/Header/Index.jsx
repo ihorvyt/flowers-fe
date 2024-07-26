@@ -16,7 +16,7 @@ export const Header = () => {
                     <Link className="header__list-elem" to=''>Blog</Link>
                 </ul>
 
-                <div className="content-cart">
+                <Link to='/cart' className="content-cart">
                     <div className="content-cart__price">12 000 грн</div>
 
                     <div className="content-cart__bucket">
@@ -39,7 +39,7 @@ export const Header = () => {
                             99
                         </div>
                     </div>
-                </div>
+                </Link>
             </div>
         </header>
     )

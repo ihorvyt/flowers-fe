@@ -16,7 +16,7 @@ const CardOrderHolder = ({ order }) => {
                                 <span className="count">Count: {item.count}</span>
                             </div>
                         </div>
-            ))}
+                    ))}
                 </div>
             <div className="total-section">
                 <span className="total-label">Total sum</span>
