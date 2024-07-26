@@ -1,0 +1,19 @@
+.order-wrapper {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.order-items {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-content: space-around;
+  flex-wrap: wrap;
+  position: relative;
+  top: 95px;
+  margin: 0 auto;
+  gap: 40px;
+  width: 1600px;
+  height: 100%;
+}
