@@ -1,16 +1,29 @@
-import { useRef, useState } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
+import {useEffect, useRef, useState} from 'react';
+import {Swiper, SwiperSlide} from 'swiper/react';
+import {Navigation, Pagination, Scrollbar, A11y} from 'swiper/modules';
+import { setSelectedFlower} from "../../../redux/slices/filterSlice.js";
 
 import './sortSwiper.scss';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
+import {useDispatch, useSelector} from "react-redux";
+import {fetchFlowers} from "../../../redux/slices/flowersSlice.js";
+
 const FilterSlider = () => {
-    const [flowers, setFlowers] = useState(['asdasd', 'asda', 'asdas', 'asdasdasdasd', 'asdasd', 'asda', 'asdas', 'asdasdasdasd', 'asdasd', 'asda', 'asdas', 'asdasdasdasd', 'asdasd', 'asda', 'asdas', 'asdasdasdasd']);
-    const [activeSlideIndex, setActiveSlideIndex] = useState(null);
+    const dispatch = useDispatch();
+    const {flowers} = useSelector((state) => state.flowers);
+    const {selectedFlower} = useSelector((state) => state.filter);
     const swiperRef = useRef(null);
+
+    useEffect(() => {
+        dispatch(fetchFlowers())
+    }, [])
+
+    const handleChooseFlower = (id) => {
+        dispatch(setSelectedFlower(id === selectedFlower ? null : id));
+    }
 
     return (
         <div className="slider-container">
@@ -29,9 +42,11 @@ const FilterSlider = () => {
             >
                 {flowers.map((flower, index) => (
                     <SwiperSlide key={index}>
-                        <div className={`flower-slide`}>
-                            <img src={`https://www.meme-arsenal.com/memes/2e39c69b3e383b36a1db912367a3b491.jpg`} alt={`Image for `} />
-                            <p className="slider-name-placeholder">{flower}</p>
+                        <div className={`flower-slide ${flower.id === selectedFlower ? 'active' : ''}`}
+                             onClick={() => handleChooseFlower(flower.id)}>
+                            <img src={`http://localhost:8083/api/v1/products/images/${flower.image.imageId}`}
+                                 alt={`Image for `}/>
+                            <p className="slider-name-placeholder">{flower.name}</p>
                         </div>
                     </SwiperSlide>
                 ))}

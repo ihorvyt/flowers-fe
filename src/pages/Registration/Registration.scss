@@ -1,0 +1,342 @@
+
+/* Main Colors */
+$accent: null;
+$white: #FCFCFC;
+$black: #1A1A1A;
+$primary: #363636;
+
+/* Pen Settings */
+$max-width: 460px;
+
+.form-wrapper {
+  display: flex;
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+
+    .reset-password-form {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 0px;
+
+      h2 {
+        color: $accent;
+        font-size: 32px;
+        font-weight: 600;
+        margin-bottom: 66px;
+      }
+
+      .input-container {
+        position: relative;
+        margin-bottom: 60px;
+
+        input {
+          outline: none;
+          position: relative;
+          width: 547px;
+          height: 60px;
+          margin-bottom: 5px;
+          border: 0;
+          color: $black;
+          font-size: 24px;
+          font-weight: 400;
+
+          &:focus {
+            ~ label {
+              transform: translateY(-35px);
+              font-size: 20px;
+              color: $black;
+              left: 0;
+              transition: all 0.3s ease;
+            }
+
+            ~ .bar:before,
+            ~ .bar:after {
+              width: 50%;
+            }
+          }
+
+          &:valid {
+            ~ label {
+              transform: translateY(-35px);
+              font-size: 18px;
+              color: $black;
+              left: 0;
+              transition: all 0.3s ease;
+            }
+          }
+        }
+
+        label {
+          position: absolute;
+          left: 20px;
+          color: #757575;
+          font-size: 25px;
+          font-weight: 200;
+          line-height: 60px;
+          transition: all 0.3s ease;
+        }
+
+        .bar {
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          background: $black;
+          width: 100%;
+          height: 3px;
+
+          &:before,
+          &:after {
+            content: '';
+            position: absolute;
+            background: $accent;
+            width: 0;
+            height: 2px;
+            transition: .2s ease;
+          }
+
+          &:before {
+            left: 50%;
+          }
+
+          &:after {
+            right: 50%;
+          }
+        }
+      }
+
+      .button-container {
+        margin-top: 20px;
+
+        button {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          padding: 28px 49.1849px;
+          gap: 6.65px;
+          color: white;
+          font-weight: 600;
+          font-size: 23.9278px;
+          line-height: 29px;
+          leading-trim: both;
+          text-edge: cap;
+          width: 547px;
+          height: 73px;
+          background: $black;
+          border-radius: 15px;
+
+          span {
+            color: white;
+            transition: .3s ease;
+          }
+
+          &:before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            display: block;
+            background: $white;
+            width: 30px;
+            height: 30px;
+            border-radius: 100%;
+            margin: -15px 0 0 -15px;
+            opacity: 0;
+            transition: .3s ease;
+          }
+
+          &:hover,
+          &:active,
+          &:focus {
+            border-color: $accent;
+
+            span {
+              color: $white;
+            }
+          }
+
+          &:active,
+          &:focus {
+            span {
+              color: $white;
+            }
+
+            &:before {
+              opacity: 1;
+            }
+          }
+        }
+      }
+    }
+
+
+  .registration-form,
+  .password-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+
+    h2 {
+      color: $accent;
+      font-size: 32px;
+      font-weight: 600;
+      margin-bottom: 66px;
+    }
+
+    .input-container {
+      position: relative;
+      margin-bottom: 60px;
+
+      input {
+        outline: none;
+        position: relative;
+        width: 547px;
+        height: 60px;
+        margin-bottom: 5px;
+        border: 0;
+        color: $black;
+        font-size: 24px;
+        font-weight: 400;
+
+        &:focus {
+          ~ label {
+            transform: translateY(-35px);
+            font-size: 20px;
+            color: $black;
+            left: 0;
+            transition: all 0.3s ease;
+          }
+
+          ~ .bar:before,
+          ~ .bar:after {
+            width: 50%;
+          }
+        }
+
+        &:valid {
+          ~ label {
+            transform: translateY(-35px);
+            font-size: 18px;
+            color: $black;
+            left: 0;
+            transition: all 0.3s ease;
+          }
+        }
+      }
+
+      label {
+        position: absolute;
+        left: 20px;
+        color: #757575;
+        font-size: 25px;
+        font-weight: 200;
+        line-height: 60px;
+        transition: all 0.3s ease;
+      }
+
+      .bar {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        background: $black;
+        width: 100%;
+        height: 3px;
+
+        &:before,
+        &:after {
+          content: '';
+          position: absolute;
+          background: $accent;
+          width: 0;
+          height: 2px;
+          transition: .2s ease;
+        }
+
+        &:before {
+          left: 50%;
+        }
+
+        &:after {
+          right: 50%;
+        }
+      }
+    }
+
+    .button-container {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      button {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 28px 49.1849px;
+        gap: 6.65px;
+        color: white;
+        font-weight: 600;
+        font-size: 23.9278px;
+        line-height: 29px;
+        leading-trim: both;
+        text-edge: cap;
+        width: 547px;
+        height: 73px;
+        background: $black;
+        border-radius: 15px;
+
+
+        span {
+          color: white;
+          transition: .3s ease;
+        }
+
+        &:before {
+          content: '';
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          display: block;
+          background: $white;
+          width: 30px;
+          height: 30px;
+          border-radius: 100%;
+          margin: -15px 0 0 -15px;
+          opacity: 0;
+          transition: .3s ease;
+        }
+
+        &:hover,
+        &:active,
+        &:focus {
+          border-color: $accent;
+
+          span {
+            color: $white;
+          }
+        }
+
+        &:active,
+        &:focus {
+          span {
+            color: $white;
+          }
+
+          &:before {
+            opacity: 1;
+
+          }
+        }
+      }
+    }
+  }
+}

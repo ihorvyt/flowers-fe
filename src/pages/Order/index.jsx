@@ -1,28 +1,18 @@
-import { useState, useEffect } from 'react';
-import axios from 'axios';
+import { useEffect } from 'react';
 
 
 import './Order.scss'
 import CardOrderHolder from "../Components/CardOrderHolder/index.jsx";
 import {Header} from "../Components/Header/Index.jsx";
+import {useDispatch, useSelector} from "react-redux";
+import {fetchOrder} from "../../redux/slices/ordersSlice.js";
 
 const OrderConfirmation = () => {
-    const [orders, setOrders] = useState([]);
-    const userInfo = JSON.parse(localStorage.getItem('userInfo'));
-
-    const fetchOrders = async () => {
-        try {
-            const ordersResponse = await axios.get(`http://localhost:8083/api/v1/order/user/2`);
-            setOrders(ordersResponse.data.body);
-            console.log('Orders:', ordersResponse.data.body); // Logging orders
-        } catch (error) {
-            console.error('Error fetching orders:', error);
-        }
-    };
-
+    const dispatch = useDispatch()
+    const { orders } = useSelector((state) => state.orders)
 
     useEffect(() => {
-        fetchOrders();
+        dispatch(fetchOrder({id: 52}))
     }, []);
 
     return (
@@ -30,7 +20,7 @@ const OrderConfirmation = () => {
             <Header />
             <div className="orders-wrapper">
                 <div className="order-items">
-                    {orders.map((order) => (
+                    {orders && orders.map((order) => (
                         <CardOrderHolder key={order.id} order={order}/>
                     ))}
                 </div>

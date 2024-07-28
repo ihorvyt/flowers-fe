@@ -108,3 +108,22 @@
     height: 22.985px;
   }
 }
+
+
+.cart-icon {
+  width: 44px;
+  height: 44px;
+  padding: 0px 9.308px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+
+  border-radius: 13.829px;
+  background: var(--Main-pink, linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%), #FF4693);
+
+  svg {
+    width: 24.621px;
+    height: 23.886px;
+  }
+}

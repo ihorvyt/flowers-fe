@@ -1,23 +1,28 @@
 import './header.scss'
 import {Link} from "react-router-dom";
+import {useSelector} from "react-redux";
 
 export const Header = () => {
+    const {items, totalPrice} = useSelector((state) => state.cart);
+
+    const itemsAmount = items.reduce((acc, current) => acc + current.count, 0);
+
     return (
         <header className="header">
-            <div className="content">
+             <div className="content">
                 <Link to='/' className="content__logo">
                     <img src="/icons/logo.svg" alt=""/>
                 </Link>
 
                 <ul className="content__list">
-                    <Link className="header__list-elem" to=''>Shop</Link>
+                    <Link className="header__list-elem" to='/'>Shop</Link>
                     <Link className="header__list-elem" to=''>Locations</Link>
-                    <Link className="header__list-elem" to=''>Orders</Link>
+                    <Link className="header__list-elem" to='/orders'>Orders</Link>
                     <Link className="header__list-elem" to=''>Blog</Link>
                 </ul>
 
                 <Link to='/cart' className="content-cart">
-                    <div className="content-cart__price">12 000 грн</div>
+                    <div className="content-cart__price">{totalPrice.toFixed(2)} грн</div>
 
                     <div className="content-cart__bucket">
                         <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 34 34" fill="none">
@@ -36,7 +41,7 @@ export const Header = () => {
                             </defs>
                         </svg>
                         <div className="content-cart__orders">
-                            99
+                            {itemsAmount}
                         </div>
                     </div>
                 </Link>

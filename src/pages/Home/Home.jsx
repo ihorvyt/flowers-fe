@@ -2,10 +2,12 @@ import {Header} from "../Components/Header/Index.jsx";
 import Footer from "../Components/Footer/index.jsx"
 import Slider from "../Components/Slider/Index.jsx";
 import FilterSlider from "../Components/SortSwiper/Index.jsx";
-import FlowersCard from "../Components/FlowersCard/Index.jsx";
+import BouquetsCard from "../Components/FlowersCard/Index.jsx";
 import './home.scss'
 import {useEffect, useState} from "react";
-import axios from "axios";
+
+import {useDispatch, useSelector} from "react-redux";
+import {fetchBouquet} from "../../redux/slices/bouqetsSlice.js";
 
 export const Home = () => {
     const flowers1 = [
@@ -130,15 +132,17 @@ export const Home = () => {
             }
         }
     ]
-    const [flowers, setFlowers] = useState([])
+    const dispatch = useDispatch()
+    const {bouquets} = useSelector((state) => state.bouquets)
+    const {selectedFlower} = useSelector((state) => state.filter);
 
     useEffect(() => {
-        axios.get("http://localhost:8083/api/v1/products/flowers").then(
-            ({data}) => {
-                setFlowers(data.body)
-            }
-        )
-    }, [])
+        dispatch(fetchBouquet())
+    }, [selectedFlower])
+
+    const items = bouquets
+        .filter((bouquet) => selectedFlower === null ? true : bouquet.flowerIds.includes(selectedFlower))
+        .map((bouquet) => <BouquetsCard key={bouquet.id} product={bouquet}/>)
 
     return (<>
         <Header/>
@@ -151,9 +155,7 @@ export const Home = () => {
                 </div>
 
                 <div className="flowers">
-                    {flowers.map((bouquet) => (
-                        <FlowersCard key={bouquet.id} product={bouquet}/>
-                    ))}
+                    {items}
                 </div>
             </div>
         </main>
