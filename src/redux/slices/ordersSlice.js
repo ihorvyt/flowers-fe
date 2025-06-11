@@ -9,7 +9,7 @@ export const fetchOrder  =
             let config = {
                 method: 'get',
                 maxBodyLength: Infinity,
-                url: `http://localhost:8083/api/v1/order/user/${id}`,
+                url: `${import.meta.env.VITE_API_KEY}/order/user/${id}`,
                 headers: { },
                 data : ''
             };
@@ -31,7 +31,7 @@ export const postOrder  =
             let config = {
                 method: 'post',
                 maxBodyLength: Infinity,
-                url: 'http://localhost:8083/api/v1/order',
+                url: `${import.meta.env.VITE_API_KEY}/order`,
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token}`

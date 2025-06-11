@@ -44,7 +44,7 @@ const FilterSlider = () => {
                     <SwiperSlide key={index}>
                         <div className={`flower-slide ${flower.id === selectedFlower ? 'active' : ''}`}
                              onClick={() => handleChooseFlower(flower.id)}>
-                            <img src={`http://localhost:8083/api/v1/products/images/${flower.image.imageId}`}
+                            <img src={`${import.meta.env.VITE_API_KEY}/products/images/${flower.image.imageId}`}
                                  alt={`Image for `}/>
                             <p className="slider-name-placeholder">{flower.name}</p>
                         </div>

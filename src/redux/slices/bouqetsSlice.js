@@ -3,7 +3,7 @@ import axios from "axios";
 
 export const fetchBouquet = createAsyncThunk('bouquet/fetchFilterFlowers', async () => {
     try {
-        const {data} = await axios.get("http://localhost:8083/api/v1/products/bouquets");
+        const {data} = await axios.get(`${import.meta.env.VITE_API_KEY}/products/bouquets`);
         const bouquets = data;
 
         if (bouquets.length === 0) {

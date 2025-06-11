@@ -15,7 +15,7 @@ export const FlowerPage = () => {
                 <div className="product-details-container">
                     <div className="product-image-container">
                         <img
-                            src={`http://localhost:8083/api/v1/products/images/${product.image.imageId}`}
+                            src={`${import.meta.env.VITE_API_KEY}/products/images/${product.image.imageId}`}
                             alt={`Image for ${product.name}`}
                         />
                     </div>

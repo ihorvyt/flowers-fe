@@ -5,9 +5,9 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
-import image1 from '/public/slider/slider-image.png';
+import image1 from '/slider/slider-image.png';
 
-import button from '/public/slider/slider-button.svg';
+import button from '/slider/slider-button.svg';
 
 import './slider.scss';
 import React from "react";

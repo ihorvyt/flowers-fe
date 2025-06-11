@@ -7,7 +7,7 @@ export const getUser  =
             let config = {
                 method: 'get',
                 maxBodyLength: Infinity,
-                url: 'http://localhost:8083/api/v1/users/info',
+                url: `${import.meta.env.VITE_API_KEY}/users/info`,
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
@@ -33,7 +33,7 @@ export const logUser  =
     let config = {
         method: 'post',
         maxBodyLength: Infinity,
-        url: 'http://localhost:8083/api/v1/auth/authenticate',
+        url: `${import.meta.env.VITE_API_KEY}/auth/authenticate`,
         headers: {
             'Content-Type': 'application/json'
         },
@@ -65,7 +65,7 @@ export const regUser  =
     let config = {
         method: 'post',
         maxBodyLength: Infinity,
-        url: 'http://localhost:8083/api/v1/auth/register',
+        url: `${import.meta.env.VITE_API_KEY}/auth/register`,
         headers: {
             'Content-Type': 'application/json'
         },

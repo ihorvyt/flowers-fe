@@ -15,7 +15,7 @@ function BouquetsCard({product}) {
     return (
         <Link key={product.id} to={`/product/${product.id}`} state={{product: product}} className="product-card">
             <div className="product-image-placeholder">
-                <img src={`http://localhost:8083/api/v1/products/images/${product.image.imageId}`}
+                <img src={`${import.meta.env.VITE_API_KEY}/products/images/${product.image.imageId}`}
                      alt={`Image for`}/>
                 <p className="product-name-placeholder">{product.name}</p>
             </div>

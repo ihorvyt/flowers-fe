@@ -10,7 +10,7 @@ const CardOrderHolder = ({ order }) => {
                 <div className="bouquet-details">
                     {order.orderItems.map((item) => (
                         <div key={item.id} className="bouquet-card">
-                            <img src={`http://localhost:8083/api/v1/products/images/${item.imageId}`}  />                          <span className="bouquet-name">{item.name}</span>
+                            <img src={`${import.meta.env.VITE_API_KEY}/products/images/${item.imageId}`}  />                          <span className="bouquet-name">{item.name}</span>
                             <div className="bouquet-info">
                                 <span className="price">Price: ${item.price.toFixed(2)}</span>
                                 <span className="count">Count: {item.count}</span>

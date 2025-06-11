@@ -15,7 +15,7 @@ const CartBasketHolder = ({item}) => {
         <div className="cart">
             <div className="cart-image-container">
                     <img
-                        src={`http://localhost:8083/api/v1/products/images/${image.imageId}`}
+                        src={`${import.meta.env.VITE_API_KEY}/products/images/${image.imageId}`}
                     />
             </div>
             <div className="cart-content">
